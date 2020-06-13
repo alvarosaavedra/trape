@@ -191,16 +191,20 @@ class Trape(object):
 					self.googl = 'AIzaSyCPzcppCT27KTHnxAIQvYhtvB_l8sKGYBs'
 				try:
 					opener = urllib2.build_opener()
-					time.sleep(1.5)
+					'''
+                                        time.sleep(1.5)
 					fileLog = open(self.stats_path + '.nlog', 'r') 
 					log = fileLog.read().replace('\n', '').replace(' ', '')
 					pLog = log.find('127.0.0.1:') + 10
 					pLog = int(log[pLog:pLog+4])
 					fileLog.close()
 					os.remove(self.stats_path + '.nlog')
+				        '''
+					pLog = 4040
 					ngrokStatus = str(opener.open('http://127.0.0.1:' + str(pLog) + '/api/tunnels').read()).replace('\n', '').replace(' ', '')
 					time.sleep(0.5)
 					ngrokUrlPos = ngrokStatus.find('ngrok.io')
+@@ -225,6 +228,7 @@ def header(self):
 					if ngrokUrlPos <= 0:
 						time.sleep(4)
 						ngrokStatus = str(opener.open('http://127.0.0.1:' + str(pLog) + '/api/tunnels').read()).replace('\n', '').replace(' ', '')
@@ -271,7 +275,7 @@ class Trape(object):
 		utils.Go("")
 		utils.Go(utils.Color['whiteBold'] + "IP INFO API" + utils.Color['white'])
 		utils.Go("------")
-		utils.Go("You must register with the " + utils.Color['blueBold'] + "api.ipgeolocation.io" + utils.Color['white'] + ", and get an API for geolocation. \nBy having these data you complete the settings")
+		utils.Go("You must register with the " + utils.Color['blueBold'] + "https://.ipgeolocation.io" + utils.Color['white'] + ", and get an API for geolocation. \nBy having these data you complete the settings")
 		utils.Go("")
 		c_ipinfo = raw_input(utils.Color['blueBold'] + "-" + utils.Color['white'] + " What is your IP Info Api Key?" + " " + utils.Color['yellow'] + ":~> " + utils.Color['white'])
 		utils.Go("")
@@ -279,7 +283,7 @@ class Trape(object):
 		utils.Go("")
 		time.sleep(0.4)
 		if (c_nGrokToken != '' and c_gMapsToken != ''):
-			v = '{\n\t"ngrok_token" : "' + c_nGrokToken + '",\n\t"gmaps_api_key" : "' + c_gMapsToken + '",\n\t"gshortener_api_key" : "' + c_gOoglToken + '"\n\t"ipinfo_api_key" : "' + c_ipinfo + '",\n}'
+			v = '{\n\t"ngrok_token" : "' + c_nGrokToken + '",\n\t"gmaps_api_key" : "' + c_gMapsToken + '",\n\t"gshortener_api_key" : "' + c_gOoglToken + '",\n\t"ipinfo_api_key" : "' + c_ipinfo + '"\n}'
 			f = open ('trape.config', 'w')
 			f.write(v)
 			f.close()
