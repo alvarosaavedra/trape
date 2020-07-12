@@ -764,7 +764,7 @@ var loadMap = function(locations){
                 success: function(response, status) {
                     if (status == 'success'){
                         var lat = locations[1][1];
-                        var lat = locations[1][2];
+                        var lon = locations[1][2];
                         put_Current_Position_onMap(lat, lon);
                         geolocation_callback(response.location.lat, response.location.lng);
                     } else{
@@ -1209,11 +1209,11 @@ var User = {
                 var d = response.d[0];
 
                 window.currentUserAddres = {
-                  lat : d[26],
-                  lon : d[27],
+                  lat : d[15],
+                  lon : d[16],
                   provider : {
                     lat : d[15],
-                    lon : d[26]
+                    lon : d[16]
                   }
                 };
 

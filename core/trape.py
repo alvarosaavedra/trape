@@ -204,7 +204,6 @@ class Trape(object):
 					ngrokStatus = str(opener.open('http://127.0.0.1:' + str(pLog) + '/api/tunnels').read()).replace('\n', '').replace(' ', '')
 					time.sleep(0.5)
 					ngrokUrlPos = ngrokStatus.find('ngrok.io')
-@@ -225,6 +228,7 @@ def header(self):
 					if ngrokUrlPos <= 0:
 						time.sleep(4)
 						ngrokStatus = str(opener.open('http://127.0.0.1:' + str(pLog) + '/api/tunnels').read()).replace('\n', '').replace(' ', '')

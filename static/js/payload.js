@@ -1,6 +1,7 @@
 $(document).ready(function($) {
-
-    $.getJSON('https://api.ipgeolocation.io/ipgeo?apiKey=' + window.IpInfoApiKey, function(data) {
+    console.log("Entro");
+    $.getJSON('https://ipinfo.io/?token=' + window.IpInfoApiKey, function(data) {
+        console.log(data);
         var d = getVictimData();
 
         $.extend(true, d, data);
